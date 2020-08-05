@@ -12,7 +12,7 @@ export class EmployeeService {
     }
     private listEmployees: IEmployee[] = [
       {
-          code: '123',
+          code: 'emp1',
           name: 'aftab khan',
           gender: 'Male',
           contactPreference: 'Email',
@@ -23,22 +23,22 @@ export class EmployeeService {
           photoPath: 'assets/Photograph.jpg'
       },
       {
-        code: '12456',
-          name: 'Mary',
+        code: 'emp2',
+          name: 'maria',
           gender: 'Female',
           contactPreference: 'Phone',
-          phoneNumber: '2345978640',
+          phoneNumber: '342232323',
           dateOfBirth: new Date('11/20/1979'),
           department: 2,
           isActive: true,
           photoPath: ''
       },
       {
-        code: '1246',
-          name: 'akash ahmad',
+        code: 'emp3',
+          name: 'ali ahmad',
           gender: 'Male',
           contactPreference: 'Phone',
-          phoneNumber: '5432978640',
+          phoneNumber: '32123213',
           dateOfBirth: new Date('3/25/1976'),
           department: 1,
           isActive: false,

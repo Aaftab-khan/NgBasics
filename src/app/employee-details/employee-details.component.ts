@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./employee-details.component.css']
 })
 export class EmployeeDetailsComponent implements OnInit {
-
+  private _id;
   employee: IEmployee;
   statusMessage: string = 'Loading data. Please wait...';
 
@@ -35,11 +35,25 @@ export class EmployeeDetailsComponent implements OnInit {
     //             'Problem with the service. Please try again after sometime';
     //         console.error(error);
     //     });
-    this.employee = this._employeeService.getEmployee(empCode);
+    //this.employee = this._employeeService.getEmployee(empCode);
+    this._activatedRoute.params.subscribe(params => {
+      this._id = params['code'];
+      this.employee = this._employeeService.getEmployee(this._id);
+    });
   }
 
   onBackButtonClick() :void {
     this._router.navigate(['/employees']);
 }
+getNextEmployee() {
+  if (this._id==='emp1') {
+    this._id = "emp2";
+  } else if(this._id==='emp2') {
+    this._id =  "emp3";
+  }else{
+    this._id =  "emp1";
+  }
 
+  this._router.navigate(['/employeeDetails', this._id]);
+}
 }

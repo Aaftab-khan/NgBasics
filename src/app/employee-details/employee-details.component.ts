@@ -18,22 +18,24 @@ export class EmployeeDetailsComponent implements OnInit {
 
 
   ngOnInit(): void {
-    let empCode: string = this._activatedRoute.snapshot.params['code'];
-    this._employeeService.getEmployeeByCode(empCode)
-        .subscribe((employeeData) => {
-            if (employeeData == null) {
-                this.statusMessage =
-                    'Employee with the specified Employee Code does not exist';
-            }
-            else {
-                this.employee = employeeData;
-            }
-        },
-        (error) => {
-            this.statusMessage =
-                'Problem with the service. Please try again after sometime';
-            console.error(error);
-        });
+    //let empCode: string = this._activatedRoute.snapshot.params['code'];
+    let empCode: string = this._activatedRoute.snapshot.paramMap.get('code');
+    // this._employeeService.getEmployeeByCode(empCode)
+    //     .subscribe((employeeData) => {
+    //         if (employeeData == null) {
+    //             this.statusMessage =
+    //                 'Employee with the specified Employee Code does not exist';
+    //         }
+    //         else {
+    //             this.employee = employeeData;
+    //         }
+    //     },
+    //     (error) => {
+    //         this.statusMessage =
+    //             'Problem with the service. Please try again after sometime';
+    //         console.error(error);
+    //     });
+    this.employee = this._employeeService.getEmployee(empCode);
   }
 
   onBackButtonClick() :void {

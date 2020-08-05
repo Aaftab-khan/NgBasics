@@ -16,12 +16,13 @@ import { HomeComponent } from './home-component/home-component.component';
 import { PageNotFoundComponent } from './page-not-found-component/page-not-found-component.component';
 import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
 import { EmployeeService } from './services/employee.service';
+import { DisplayEmployeeComponent } from './display-employee/display-employee.component';
 @NgModule({
   declarations: [
     AppComponent,EmployeeComponent,SelectRequiredValidatorDirective,
     EmployeeTitlePipe,ConfirmEqualValidatorDirective,
      EmployeeListComponent, EmployeeCountComponent, HomeComponent, 
-     PageNotFoundComponent, EmployeeDetailsComponent
+     PageNotFoundComponent, EmployeeDetailsComponent, DisplayEmployeeComponent
      
   ],
   imports: [

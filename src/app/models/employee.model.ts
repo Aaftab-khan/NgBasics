@@ -1,4 +1,7 @@
-export class employee{
+import { IEmployee } from '../services/IEmployee';
+
+export class employee implements IEmployee{
+code:string;
 contactPreference:string;
 phoneNumber:string;
 email:string;

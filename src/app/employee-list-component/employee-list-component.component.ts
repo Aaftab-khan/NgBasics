@@ -35,16 +35,19 @@ getFemaleEmployeesCount(): number {
 
 onEmployeeCountRadioButtonChange(selectedRadioButtonValue: string): void {
     this.selectedEmployeeCountRadioButton = selectedRadioButtonValue;
+    console.log(selectedRadioButtonValue);
 }
 
   ngOnInit(): void {
-    this._employeeService.getEmployees()
+  /* this._employeeService.getEmployees()
     .subscribe(employeesData => this.employees = employeesData,
         error => {
             this.statusMessage =
                 'Problem with the service. Please try again after sometime';
         }
         );
+        */
+       this.employees = this._employeeService.getEmployeesList();
   }
 
 }

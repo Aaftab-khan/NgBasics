@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { department } from '../models/department';
 import { employee } from '../models/employee.model';
+import { EmployeeService } from '../services/employee.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-employee',
   templateUrl: './employee.component.html',
@@ -12,7 +14,8 @@ export class EmployeeComponent  implements OnInit {
 departments:Array<department>;
 employeeObj: employee;
 
- constructor(){
+ constructor(private _employeeService: EmployeeService,
+  private _router: Router){
 
   this.departments= [
     { id: 1, name: 'Help Desk' },
@@ -22,6 +25,7 @@ employeeObj: employee;
   ];
     
   this.employeeObj= { 
+    code:null,
     name: null,
     gender:'male',
     email: null,
@@ -41,6 +45,8 @@ employeeObj: employee;
 
   saveEmployee(emp: employee): void {
     console.log(emp);
+    this._employeeService.save(emp);
+    this._router.navigate(['list']);
   }
 
   togglePhotoPreview(){

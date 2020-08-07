@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SelectRequiredValidatorDirective } from './shared/customValidators/select-required-validator.directive';
 import { ConfirmEqualValidatorDirective } from './shared/customValidators/confirm-equal-validator.directive';
 import { EmployeeTitlePipe } from './shared/customPipes/employeeTitle.pipe';
+import { EmployeeFilterPipe } from './shared/customPipes/employee-filter.pipe';
 import { EmployeeListComponent } from './employee-list-component/employee-list-component.component';
 import { EmployeeCountComponent } from './employee-count/employee-count.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -20,7 +21,7 @@ import { DisplayEmployeeComponent } from './display-employee/display-employee.co
 @NgModule({
   declarations: [
     AppComponent,EmployeeComponent,SelectRequiredValidatorDirective,
-    EmployeeTitlePipe,ConfirmEqualValidatorDirective,
+    EmployeeTitlePipe,ConfirmEqualValidatorDirective,EmployeeFilterPipe,
      EmployeeListComponent, EmployeeCountComponent, HomeComponent, 
      PageNotFoundComponent, EmployeeDetailsComponent, DisplayEmployeeComponent
      

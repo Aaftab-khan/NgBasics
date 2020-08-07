@@ -8,7 +8,22 @@ import { EmployeeService } from '../services/employee.service';
   //providers: [EmployeeService]
 })
 export class EmployeeListComponent implements OnInit {
-  employees: IEmployee[];;
+  employees: IEmployee[];
+  filteredEmployees: IEmployee[];
+
+  private _searchTerm: string;
+  // We are binding to this property in the view template, so this
+  // getter is called when the binding needs to read the value
+  get searchTerm(): string {
+    return this._searchTerm;
+  }
+
+  // This setter is called everytime the value in the search text box changes
+  set searchTerm(value: string) {
+    this._searchTerm = value;
+    this.filteredEmployees = this.filterEmployees(value);
+  }
+
   selectedEmployeeCountRadioButton: string = 'All';
   statusMessage: string = 'Loading data. Please wait...';
 
@@ -16,7 +31,10 @@ export class EmployeeListComponent implements OnInit {
   
    }
 
-
+   filterEmployees(searchString: string) {
+    return this.employees.filter(employee =>
+      employee.name.toLowerCase().indexOf(searchString.toLowerCase()) !== -1);
+  }
 trackByEmpCode(index: number, employee: any): string {
   return employee.code;
 }
